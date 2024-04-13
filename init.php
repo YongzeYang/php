@@ -6,9 +6,9 @@ include_once "placeholder.php";
 function createDB($pdo){
     $sql = "CREATE DATABASE IF NOT EXISTS petShop";
     if ( $pdo->query($sql) === TRUE) {
-        echo "Databse created successfully";
+        echo "Databse created successfully<br>";
     } else {
-        echo "database already existed ";
+        echo "database already existed<br>";
     }
 };
 
@@ -178,10 +178,9 @@ catch(PDOException $e)
     echo "<br>connect DB error: " . $e->getMessage();
 }
 createDB($pdo);
-
-$pdo = null;
+#$pdo = null;
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+# $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 seedUsers($conn,$users);
 seedToys($conn,$toys);
 seedFood($conn,$food);
